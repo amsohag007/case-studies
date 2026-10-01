@@ -11,27 +11,36 @@ Software engineer building AI agents, payments systems and multi-tenant SaaS pro
 
 ### [Merchant Dashboard Agent](merchant-dashboard-agent/)
 
-<a href="merchant-dashboard-agent/"><img src="merchant-dashboard-agent/architecture.png" alt="Merchant Dashboard Agent architecture" width="420"></a>
+An embedded AI assistant that turns plain-language questions into live dashboard views for a multi-tenant payments platform, with merchant-created Skills, cost limits and tenant isolation.
 
-An embedded AI assistant that turns plain-language questions into live dashboard views for a multi-tenant payments platform, with Skills, cost limits and tenant isolation.
+- **Role:** Lead and sole engineer
+- **Timeframe:** About 4 months, 2026
+- **Stack:** Python, Django, Anthropic Claude, SSE, PostgreSQL, Playwright
+- **Highlights:** ~80 issues · 13/13 E2E tests · 5/5 live merchant requests · cost-capped
 
-**Stack:** Python, Django, Anthropic Claude, SSE, PostgreSQL, Playwright
+[Read the case study →](merchant-dashboard-agent/)
 
 ### [Multi-Tenant Access Control for SaaS](multi-tenant-access-control-for-saas/)
 
-<a href="multi-tenant-access-control-for-saas/"><img src="multi-tenant-access-control-for-saas/architecture.png" alt="Multi-Tenant Access Control for SaaS architecture" width="420"></a>
-
 Custom roles and section-wise permissions per tenant, a cross-tenant support role and privilege-escalation guardrails for a schema-per-tenant payments SaaS.
 
-**Stack:** Python, Django, django-tenants, PostgreSQL, Next.js, Playwright
+- **Role:** Lead engineer for access control and tenant isolation
+- **Timeframe:** About 3.5 months, 2026
+- **Stack:** Python, Django, django-tenants, PostgreSQL, Next.js, Playwright
+- **Highlights:** 47 sections × 5 actions · 1,715 parity checks · 0 high-severity findings after review
+
+[Read the case study →](multi-tenant-access-control-for-saas/)
 
 ### [Fuxx (Liquva) SEPA Payment Integration](fuxx-sepa-payment-integration/)
 
-<a href="fuxx-sepa-payment-integration/"><img src="fuxx-sepa-payment-integration/architecture.png" alt="Fuxx (Liquva) SEPA Payment Integration architecture" width="420"></a>
-
 A SEPA Direct Debit provider integrated by API and by CSV batch, with RSA-signed webhooks, polling, daily reconciliation and a full provider mock.
 
-**Stack:** Python, Django, PostgreSQL, Celery, Node.js/TypeScript, Playwright
+- **Role:** Lead engineer for the Fuxx integration
+- **Timeframe:** About 2 months, 2026
+- **Stack:** Python, Django, PostgreSQL, Celery, Node.js/TypeScript, Playwright
+- **Highlights:** 5 provider endpoints · 10 → 5 status mapping · ~170 automated tests · live-verified in sandbox
+
+[Read the case study →](fuxx-sepa-payment-integration/)
 
 ## Contact
 
