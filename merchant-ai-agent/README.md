@@ -1,5 +1,6 @@
 ---
 title: Merchant AI Agent
+permalink: /merchant-ai-agent/
 description: An embedded AI assistant that turns plain-language questions into live dashboard views for a multi-tenant payments platform.
 ---
 
