@@ -17,6 +17,14 @@ An embedded AI assistant that turns plain-language questions into live dashboard
 
 **Stack:** Python, Django, Anthropic Claude, SSE, PostgreSQL, Playwright
 
+### [Multi-Tenant Access Control](multi-tenant-access-control/)
+
+<a href="multi-tenant-access-control/"><img src="multi-tenant-access-control/architecture.png" alt="Multi-Tenant Access Control architecture" width="420"></a>
+
+Custom roles and section-wise permissions per tenant, a cross-tenant support role and privilege-escalation guardrails for a schema-per-tenant payments SaaS.
+
+**Stack:** Python, Django, django-tenants, PostgreSQL, Next.js, Playwright
+
 ## Contact
 
 - Email: [amsohag007@gmail.com](mailto:amsohag007@gmail.com)
