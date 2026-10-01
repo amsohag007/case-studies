@@ -4,6 +4,7 @@ permalink: /merchant-dashboard-agent/
 redirect_from:
   - /merchant-ai-agent/
 description: An embedded AI assistant that turns plain-language questions into live dashboard views for a multi-tenant payments platform.
+image: /merchant-dashboard-agent/architecture.png
 ---
 
 [← All case studies](../)
