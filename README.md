@@ -3,8 +3,6 @@ permalink: /
 image: /merchant-dashboard-agent/architecture.png
 ---
 
-Software engineer building AI agents, payments systems and multi-tenant SaaS products. Portfolio: [abumusa-portfolio.web.app](https://abumusa-portfolio.web.app)
-
 ## Case studies
 
 ### [Merchant Dashboard Agent](merchant-dashboard-agent/)
@@ -67,3 +65,4 @@ Printed and posted letters as a second channel on the same platform, through the
 - Email: [amsohag007@gmail.com](mailto:amsohag007@gmail.com)
 - LinkedIn: [linkedin.com/in/abumusa007](https://www.linkedin.com/in/abumusa007)
 - GitHub: [amsohag007](https://github.com/amsohag007)
+- Portfolio: [abumusa-portfolio.web.app](https://abumusa-portfolio.web.app)
