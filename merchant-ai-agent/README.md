@@ -37,12 +37,9 @@ Every merchant saw the same fixed dashboard: 4 KPI cards and 4 charts covering 9
 
 An assistant docked on the merchant dashboard that:
 
-- turns natural-language requests into tool calls over tenant-scoped data;
-- supports named date ranges, group-by gateway, status, country or campaign (top 6 plus "Other"), and several metrics on one chart;
-- sees the current dashboard, so "remove the churn chart" or "put this after gross revenue" works;
-- knows the page and the caller, and can search records on the current page;
-- offers reusable Skills (saved prompts), including platform-wide Skills that tenants can opt out of;
-- records tokens, cost and latency per turn, with a cross-tenant usage report.
+- turns natural-language requests into charts over tenant-scoped data, with named date ranges, group-by breakdowns (top 6 plus "Other") and several metrics on one chart;
+- knows the current dashboard, page and caller, so "remove the churn chart" or "put this after gross revenue" works;
+- runs merchant-created Skills and meters every turn against cost limits (both covered below).
 
 The agent cannot create or change business records. It only composes dashboard views, and a view is saved only when the merchant clicks Accept.
 
