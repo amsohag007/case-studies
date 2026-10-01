@@ -1,3 +1,8 @@
+---
+permalink: /
+image: /merchant-dashboard-agent/architecture.png
+---
+
 # Musa — Case Studies
 
 Software engineer building AI agents, payments systems and multi-tenant SaaS products.
