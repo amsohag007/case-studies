@@ -1,3 +1,8 @@
+---
+title: Merchant AI Agent
+description: An embedded AI assistant that turns plain-language questions into live dashboard views for a multi-tenant payments platform.
+---
+
 [← All case studies](../)
 
 # Merchant AI Agent
@@ -6,7 +11,11 @@
 
 Embedded conversational analytics and dashboard customization for a multi-tenant B2B payments platform.
 
-**Role:** Lead and sole engineer · **Timeline:** About 4 months, 2026 (1 month core build, 3 months of upgrades and testing) · **Stack:** Python, Django, Anthropic Claude, SSE, ApexCharts, PostgreSQL, Playwright
+**At a glance:** ~80 issues · 13/13 E2E tests · 5/5 live merchant requests · tenant-isolated · cost-capped
+
+- **Role:** Lead and sole engineer
+- **Timeline:** About 4 months, 2026 (1 month core build, 3 months of upgrades and testing)
+- **Stack:** Python, Django, Anthropic Claude, SSE, ApexCharts, PostgreSQL, Playwright
 
 ## Overview
 
@@ -19,7 +28,7 @@ The agent reads tenant-scoped data, builds the right chart and streams a live pr
 Every merchant saw the same fixed dashboard: 4 KPI cards and 4 charts covering 90 days, hard-coded in Python.
 
 - Questions outside those metrics needed an operator or a CSV export.
-- Layouts could not be personalised per user.
+- Layouts could not be personalized per user.
 - The backend had no LLM integration.
 - The data is live payments and customer bank details across many tenants, so tenant isolation and predictable AI cost were hard requirements.
 
@@ -43,6 +52,12 @@ The agent runs inside the existing Django backend, with no separate AI service. 
 ![Architecture: the agent proposes; only Accept changes the saved dashboard](architecture.png)
 
 Read tools pull tenant-scoped metrics through a 60-second cache. Compose tools edit a per-turn layout builder, whose proposal streams back as a preview. Only Accept persists it. Skills enter through the same chat, so they pass the same guards; every turn writes a usage record that feeds the token budget.
+
+## The view-only pivot
+
+My first build gave the agent write actions: edit a lead's contact fields, create a lead, cancel a subscription. Each went through a preview-and-confirm diff, role gating (members and above) and an immutable audit log.
+
+After review, the product owner cut scope: the merchant agent should only read data and compose views. I disconnected the write tools from the agent instead of deleting them. The view-only change touched one file, and the write framework is ready for a future admin tool.
 
 ## Merchant-created Skills
 
@@ -76,14 +91,16 @@ The agent handles payment data for many tenants, so every layer limits what it c
 | Tenant isolation | Every query runs inside the caller's tenant schema; the metrics cache is keyed by tenant, so one tenant's figures can never be served to another |
 | What the agent can do | Read and compose tools only; write tools are not registered, and the accept endpoint rejects any data-change request |
 | What gets saved | Nothing persists without the merchant's Accept; a preview can always be discarded |
-| Who can use it | Role-checked access; CS agents are excluded, consistent with the platform's analytics rules |
+| Who can use it | Role-checked access; customer-support staff are excluded, consistent with the platform's analytics rules |
 | Secrets | The model API key stays server-side in environment config and never reaches the browser |
 | Spend | Rate limits and token budgets are checked before any model call, and over-limit requests stop with a 429 |
 | Kill switch | One feature flag turns the chat off for everyone without affecting the dashboard |
 
-The dormant write framework kept the same posture: role gating, a preview-and-confirm diff and an immutable audit log for every change.
+The original write framework (see the view-only pivot above) kept the same posture: role gating, a preview-and-confirm diff and an immutable audit log for every change.
 
 ## Key engineering decisions
+
+### Agent core
 
 | Decision | Why | Trade-off |
 | --- | --- | --- |
@@ -92,17 +109,16 @@ The dormant write framework kept the same posture: role gating, a preview-and-co
 | Preview, then Accept | A clear boundary between model output and saved state | One extra click per change |
 | Guards before the model call | Per-user and per-tenant rate limits and token budgets return a 429 before any spend | Limits need tuning by tenant size |
 | Short-lived tenant-scoped cache | Repeated KPI questions don't re-hit Postgres | Figures can lag by up to 60 seconds |
+
+### Skills and cost
+
+| Decision | Why | Trade-off |
+| --- | --- | --- |
 | Skills are read-only and run through the same agent | A saved prompt can never become a back door to change data; every Skill passes the same tools, guards and limits as a typed request | Skills cannot automate actions |
 | The agent suggests a Skill; the merchant confirms | No Skill is created without a person approving it | One extra step to save |
 | Three Skill scopes with per-user caps | Personal Skills don't clutter the tenant, and caps keep storage and prompt size bounded | Administrators own the platform-wide set |
 | Meter every turn in a durable record | Cost is attributed per user and tenant, ready for billing; the write is isolated so a metering failure never breaks the chat | One extra database write per turn |
 | Model and limits live in platform settings | Operators change the model or tighten limits without a deploy | Settings changes need their own governance |
-
-### The view-only pivot
-
-My first build gave the agent write actions: edit a lead's contact fields, create a lead, cancel a subscription. Each went through a preview-and-confirm diff, role gating (members and above) and an immutable audit log.
-
-After review, the owner cut scope: the merchant agent should only read data and compose views. I disconnected the write tools from the agent instead of deleting them. The view-only change touched one file, and the framework is ready for a future admin tool.
 
 ## Development and ownership
 
@@ -110,7 +126,7 @@ I was the lead and the only engineer, from research to production-ready code.
 
 - Wrote the technical design, then a 40-issue roadmap in 4 milestones (dashboard preview, other surfaces, write actions, hardening), with dependencies mapped between issues.
 - Built every layer: agent runtime, tool registry, metrics services, widget catalog, per-user layouts, SSE endpoints, chat UI, tests and the eval harness.
-- Adapted when the direction changed. The first version was a standalone assistant page; the owner wanted it on the real dashboard, editing the real charts. The machinery already existed, so I pointed the dashboard at the saved layout, docked the chat on it and retired the standalone page.
+- Adapted when the direction changed. The first version was a standalone assistant page; the product owner wanted it on the real dashboard, editing the real charts. The machinery already existed, so I pointed the dashboard at the saved layout, docked the chat on it and retired the standalone page.
 
 In total the project covered about 80 issues.
 
@@ -126,7 +142,7 @@ In total the project covered about 80 issues.
 
 Some features worked at the tool level and still failed through chat. Asked for "revenue and chargebacks per day in one chart", the agent built two separate charts, because the catalog had no chart for two different metrics. I added a multi-metric overlay chart and taught the prompt to prefer it. The same request now produces exactly one chart.
 
-Earlier, UAT found that the agent could list records but never get their IDs, so the write actions were unreachable by conversation, although every unit test passed.
+Earlier, user testing found that the agent could list records but never get their IDs, so the write actions were unreachable by conversation, although every unit test passed.
 
 ## Outcome
 
@@ -136,7 +152,7 @@ Still open: load testing on the largest tenant, and a second y-axis for overlays
 
 ## Takeaways
 
-1. **Connect AI to the real product surface early.** M1–M4 worked in a sandbox page; the value appeared on the real dashboard.
+1. **Connect AI to the real product surface early.** The first four milestones worked in a sandbox page; the value appeared on the real dashboard.
 2. **Test conversations, not just tools.** A capability can exist and still be unreachable through natural language.
 3. **Keep AI changes reversible.** Preview-and-confirm separates model output from saved state.
 4. **Build cost controls into the architecture.** Limits belong in front of the model, not in a report after the bill.
