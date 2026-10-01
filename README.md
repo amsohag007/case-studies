@@ -67,5 +67,5 @@ Printed and posted letters as a second channel on the same platform, through the
 ## Contact
 
 - Email: [amsohag007@gmail.com](mailto:amsohag007@gmail.com)
-- LinkedIn: [linkedin.com/in/amsohag007](https://www.linkedin.com/in/amsohag007)
+- LinkedIn: [linkedin.com/in/abumusa007](https://www.linkedin.com/in/abumusa007)
 - GitHub: [amsohag007](https://github.com/amsohag007)
