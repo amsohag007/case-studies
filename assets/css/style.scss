@@ -153,3 +153,22 @@ a:hover {
   color: $link;
   word-break: break-all;
 }
+
+/* Card fixes: theme sidebar texture and grey text overrides */
+aside#sidebar {
+  background: none !important;
+  min-height: 0;
+}
+
+#sidebar .contact-card p.contact-name {
+  color: $ink;
+}
+
+#sidebar .contact-card p.contact-role {
+  color: $gold-dark;
+}
+
+#sidebar .contact-links a {
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
