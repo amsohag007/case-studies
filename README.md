@@ -42,6 +42,28 @@ A SEPA Direct Debit provider integrated by API and by CSV batch, with RSA-signed
 
 [Read the case study →](fuxx-sepa-payment-integration/)
 
+### [Customer Communications, Part 1: Email](customer-communications-email/)
+
+Event-driven transactional email for a multi-tenant SEPA Direct Debit SaaS, sent through each merchant's own mail server, with legally required pre-notifications, unsubscribe and GDPR purging.
+
+- **Role:** Lead and sole engineer
+- **Timeframe:** About 3 months, 2026
+- **Stack:** Python, Django, Celery, Redis, PostgreSQL, Jinja2, Datadog, Playwright
+- **Highlights:** ~37 events in 8 categories · merchant-owned SMTP · 8 tenant-tagged metrics · 76/76 E2E passing
+
+[Read the case study →](customer-communications-email/)
+
+### [Customer Communications, Part 2: Physical Letters](customer-communications-letters/)
+
+Printed and posted letters as a second channel on the same platform, through the Pingen print-and-mail API, with per-country pricing, budgets and delivery tracking.
+
+- **Role:** Lead and sole engineer
+- **Timeframe:** About 1 month, 2026
+- **Stack:** Python, Django, Celery, PostgreSQL, Gotenberg, Pingen API, Next.js
+- **Highlights:** one rule, two channels · signed delivery webhooks · write-once billing · ~190 automated tests
+
+[Read the case study →](customer-communications-letters/)
+
 ## Contact
 
 - Email: [amsohag007@gmail.com](mailto:amsohag007@gmail.com)
