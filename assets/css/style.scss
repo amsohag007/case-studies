@@ -1,0 +1,93 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Architect, recoloured to match the portfolio: navy + gold */
+$navy: #0a1628;
+$navy-2: #12213a;
+$gold: #f5b83d;
+$gold-dark: #a86b0c;
+$ink: #0a1628;
+$muted: #4a5a73;
+$link: #1d3461;
+
+body {
+  background: #f7f8fb;
+  color: #24324a;
+}
+
+header {
+  background: $navy;
+  border-bottom: 4px solid $gold;
+}
+
+header h1,
+header a,
+header a:hover {
+  color: #fff;
+}
+
+header h2 {
+  color: $gold;
+}
+
+/* No "View project on GitHub" button */
+header a.button,
+header .button {
+  display: none;
+}
+
+#content-wrapper {
+  border-top: 0;
+}
+
+#main-content h1,
+#main-content h2,
+#main-content h3,
+#main-content h4,
+#main-content h5,
+#main-content h6 {
+  color: $ink;
+}
+
+#main-content h1::before,
+#main-content h2::before,
+#main-content h3::before {
+  color: $gold;
+}
+
+a {
+  color: $link;
+}
+
+a:hover {
+  color: $gold-dark;
+}
+
+#main-content strong {
+  color: $ink;
+}
+
+#main-content table th {
+  background: $navy-2;
+  color: #fff;
+}
+
+#main-content blockquote {
+  border-left-color: $gold;
+}
+
+#main-content img {
+  border-radius: 10px;
+}
+
+#sidebar,
+#sidebar p,
+#sidebar a {
+  color: $muted;
+}
+
+#sidebar a:hover {
+  color: $gold-dark;
+}
