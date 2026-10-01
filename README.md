@@ -25,6 +25,14 @@ Custom roles and section-wise permissions per tenant, a cross-tenant support rol
 
 **Stack:** Python, Django, django-tenants, PostgreSQL, Next.js, Playwright
 
+### [Fuxx (Liquva) SEPA Payment Integration](fuxx-sepa-payment-integration/)
+
+<a href="fuxx-sepa-payment-integration/"><img src="fuxx-sepa-payment-integration/architecture.png" alt="Fuxx (Liquva) SEPA Payment Integration architecture" width="420"></a>
+
+A SEPA Direct Debit provider integrated by API and by CSV batch, with RSA-signed webhooks, polling, daily reconciliation and a full provider mock.
+
+**Stack:** Python, Django, PostgreSQL, Celery, Node.js/TypeScript, Playwright
+
 ## Contact
 
 - Email: [amsohag007@gmail.com](mailto:amsohag007@gmail.com)
