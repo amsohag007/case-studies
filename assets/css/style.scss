@@ -91,3 +91,65 @@ a:hover {
 #sidebar a:hover {
   color: $gold-dark;
 }
+
+/* Sidebar: contact card on the right */
+#sidebar {
+  background: none;
+}
+
+.contact-card {
+  background: #fff;
+  border: 1px solid #e1e6ef;
+  border-top: 4px solid $gold;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.contact-card img {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $gold;
+  margin-bottom: 12px;
+}
+
+.contact-card .contact-name {
+  margin: 0;
+  color: $ink;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.contact-card .contact-role {
+  margin: 2px 0 14px;
+  color: $gold-dark;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.contact-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-links li {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.contact-links span {
+  display: block;
+  color: $muted;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+#sidebar .contact-links a {
+  color: $link;
+  word-break: break-all;
+}
