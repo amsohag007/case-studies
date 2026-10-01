@@ -1,13 +1,15 @@
 ---
-title: Multi-Tenant Access Control
-permalink: /multi-tenant-access-control/
+title: Multi-Tenant Access Control for SaaS
+permalink: /multi-tenant-access-control-for-saas/
+redirect_from:
+  - /multi-tenant-access-control/
 description: Custom roles, section-wise permissions, cross-tenant access and tenant isolation for a schema-per-tenant B2B payments SaaS.
-image: /multi-tenant-access-control/architecture.png
+image: /multi-tenant-access-control-for-saas/architecture.png
 ---
 
 [← All case studies](../)
 
-# Multi-Tenant Access Control
+# Multi-Tenant Access Control for SaaS
 
 *Case study by Musa*
 
