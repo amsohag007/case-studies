@@ -1,3 +1,5 @@
 title: Musa — Case Studies
 description: AI agents, payments systems and multi-tenant SaaS
 theme: jekyll-theme-architect
+plugins:
+  - jekyll-redirect-from

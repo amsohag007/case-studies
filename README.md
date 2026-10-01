@@ -6,7 +6,7 @@ Software engineer building AI agents, payments systems and multi-tenant SaaS pro
 
 | Project | What it is | Stack |
 | --- | --- | --- |
-| [Merchant AI Agent](merchant-ai-agent/) | An embedded AI assistant that turns plain-language questions into live dashboard views for a multi-tenant payments platform, with Skills, cost limits and tenant isolation | Python, Django, Anthropic Claude, SSE, PostgreSQL, Playwright |
+| [Merchant Dashboard Agent](merchant-dashboard-agent/) | An embedded AI assistant that turns plain-language questions into live dashboard views for a multi-tenant payments platform, with Skills, cost limits and tenant isolation | Python, Django, Anthropic Claude, SSE, PostgreSQL, Playwright |
 
 ## Contact
 

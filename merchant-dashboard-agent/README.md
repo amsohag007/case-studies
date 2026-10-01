@@ -1,12 +1,14 @@
 ---
-title: Merchant AI Agent
-permalink: /merchant-ai-agent/
+title: Merchant Dashboard Agent
+permalink: /merchant-dashboard-agent/
+redirect_from:
+  - /merchant-ai-agent/
 description: An embedded AI assistant that turns plain-language questions into live dashboard views for a multi-tenant payments platform.
 ---
 
 [← All case studies](../)
 
-# Merchant AI Agent
+# Merchant Dashboard Agent
 
 *Case study by Musa*
 
