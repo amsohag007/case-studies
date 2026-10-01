@@ -3,9 +3,7 @@ permalink: /
 image: /merchant-dashboard-agent/architecture.png
 ---
 
-# Musa — Case Studies
-
-Software engineer building AI agents, payments systems and multi-tenant SaaS products.
+Software engineer building AI agents, payments systems and multi-tenant SaaS products. Portfolio: [abumusa-portfolio.web.app](https://abumusa-portfolio.web.app)
 
 ## Case studies
 
