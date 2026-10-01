@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <a href="{{ '/' | relative_url }}" class="profile">
+          <img src="{{ '/assets/images/abu-musa-profile.jpg' | relative_url }}" alt="Md. Abu Musa" width="112" height="112">
+          <span class="name">Md. Abu Musa</span>
+        </a>
+        <p class="role">Full-Stack Software Engineer</p>
+        <p class="bio">SaaS platforms, payment integrations and AI agents, from architecture to production.</p>
+
+        <ul class="links">
+          <li><a href="https://abumusa-portfolio.web.app">Portfolio</a></li>
+          <li><a href="https://www.linkedin.com/in/abumusa007">LinkedIn</a></li>
+          <li><a href="https://github.com/amsohag007">GitHub</a></li>
+          <li><a href="mailto:amsohag007@gmail.com">amsohag007@gmail.com</a></li>
+        </ul>
+
+        <nav class="studies" aria-label="Case studies">
+          <p class="studies-title"><a href="{{ '/' | relative_url }}">Case studies</a></p>
+          <ul>
+            {% for s in site.data.studies %}
+            <li><a href="{{ s.url | relative_url }}"{% if page.url == s.url %} class="active" aria-current="page"{% endif %}>{{ s.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      {{ content }}
+      <footer class="footer">© {{ 'now' | date: '%Y' }} Md. Abu Musa</footer>
+    </main>
+  </div>
+</body>
+</html>

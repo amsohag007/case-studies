@@ -1,6 +1,5 @@
 title: Musa — Case Studies
 description: AI agents, payments systems and multi-tenant SaaS
-theme: jekyll-theme-cayman
 url: https://amsohag007.github.io
 baseurl: /case-studies
 image: /merchant-dashboard-agent/architecture.png
@@ -9,3 +8,8 @@ author:
 plugins:
   - jekyll-redirect-from
   - jekyll-seo-tag
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
