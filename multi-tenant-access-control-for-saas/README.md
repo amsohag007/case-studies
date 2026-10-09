@@ -1,4 +1,5 @@
 ---
+redirect_to: https://abumusa-portfolio.web.app/case-studies/multi-tenant-access-control-for-saas/
 title: Multi-Tenant Access Control for SaaS
 permalink: /multi-tenant-access-control-for-saas/
 redirect_from:
@@ -14,6 +15,12 @@ image: /multi-tenant-access-control-for-saas/architecture.png
 *Case study by Musa*
 
 Configurable roles, cross-tenant access and tenant isolation for a schema-per-tenant B2B payments SaaS.
+
+> **In short**
+>
+> **Problem:** Every merchant got the same five fixed roles, and support staff could not be given access to one specific merchant.  
+> **What I built:** Custom roles with section-by-section permissions, a scoped support role, per-tenant switches and a central, audited privilege policy.  
+> **Result:** Merchants set up access for their own teams without code changes, support reaches exactly the merchants it is granted, and the built-in roles behave exactly as before.
 
 **At a glance:** custom roles per tenant · 47 sections × 5 actions · 1,715 parity checks · 4 order paths gated per tenant · 0 high-severity findings after review · tenant-isolated
 

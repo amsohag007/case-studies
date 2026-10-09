@@ -1,4 +1,5 @@
 ---
+redirect_to: https://abumusa-portfolio.web.app/case-studies/customer-communications-email/
 title: "Customer Communications, Part 1: Email"
 permalink: /customer-communications-email/
 description: Event-driven transactional email for a multi-tenant SEPA Direct Debit SaaS, sent through each merchant's own mail server.
@@ -12,6 +13,12 @@ image: /customer-communications-email/architecture.png
 *Case study by Musa*
 
 Event-driven transactional email for a multi-tenant SEPA Direct Debit SaaS, sent through each merchant's own mail server.
+
+> **In short**
+>
+> **Problem:** Merchants needed branded customer email, and a pre-notification before each SEPA debit is a legal duty.  
+> **What I built:** Event-driven email through each merchant's own mail server, with rules per event, safe unsubscribes and automatic data purging.  
+> **Result:** Running in production: legally required notices can't be switched off, and every send is traceable.
 
 **At a glance:** ~37 events in 8 categories · SEPA pre-notifications by law · merchant-owned SMTP · 8 tenant-tagged metrics · 76/76 E2E passing (1 skipped) · GDPR purge
 

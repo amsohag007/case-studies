@@ -1,4 +1,5 @@
 ---
+redirect_to: https://abumusa-portfolio.web.app/case-studies/fuxx-sepa-payment-integration/
 title: Fuxx (Liquva) SEPA Payment Integration
 permalink: /fuxx-sepa-payment-integration/
 description: A SEPA Direct Debit provider integrated by API and by CSV batch, with signed webhooks, polling and reconciliation for a multi-tenant payments SaaS.
@@ -12,6 +13,12 @@ image: /fuxx-sepa-payment-integration/architecture.png
 *Case study by Musa*
 
 Fuxx (Liquva), a SEPA Direct Debit provider, integrated by API and by CSV batch, with signed webhooks, polling and reconciliation for a multi-tenant payments SaaS.
+
+> **In short**
+>
+> **Problem:** Merchants needed a new SEPA Direct Debit provider, and a late, duplicated or lost webhook must never leave a payment in the wrong state.  
+> **What I built:** An API and batch-file integration with signed webhooks, polling, reconciliation and a full provider mock for testing every outcome.  
+> **Result:** Merchants collect SEPA debits through the new provider either way, with every status reconciled into one ledger.
 
 **At a glance:** 5 provider endpoints · RSA-signed webhooks · 10 → 5 status mapping · one 29-column CSV both ways · ~170 automated tests · live-verified in the provider's sandbox
 

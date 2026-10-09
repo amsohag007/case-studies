@@ -1,4 +1,5 @@
 ---
+redirect_to: https://abumusa-portfolio.web.app/case-studies/customer-communications-letters/
 title: "Customer Communications, Part 2: Physical Letters"
 permalink: /customer-communications-letters/
 description: Printed and posted letters as a second channel on the email platform, through the Pingen print-and-mail API, with per-merchant cost and delivery tracking.
@@ -12,6 +13,12 @@ image: /customer-communications-letters/architecture.png
 *Case study by Musa*
 
 Printed and posted letters as a second channel on the email platform from [Part 1](../customer-communications-email/), through the Pingen print-and-mail API, with per-merchant cost and delivery tracking.
+
+> **In short**
+>
+> **Problem:** Merchants wanted to post real letters, where every send costs money and can't be undone once printed.  
+> **What I built:** Physical letters as a second channel on the same rules as email, priced per country, capped by a budget and tracked to delivery.  
+> **Result:** Merchants send branded letters the same way they send email, with spend under control.
 
 **At a glance:** one rule, two channels · HTML to PDF in-house · signed delivery webhooks · per-country pricing and budgets · ~190 automated tests · live letters sent through the provider's sandbox
 

@@ -1,4 +1,5 @@
 ---
+redirect_to: https://abumusa-portfolio.web.app/case-studies/merchant-dashboard-agent/
 title: Merchant Dashboard Agent
 permalink: /merchant-dashboard-agent/
 redirect_from:
@@ -14,6 +15,12 @@ image: /merchant-dashboard-agent/architecture.png
 *Case study by Musa*
 
 Embedded conversational analytics and dashboard customization for a multi-tenant B2B payments platform.
+
+> **In short**
+>
+> **Problem:** Merchants saw one fixed dashboard; any other question meant asking the operations team for a CSV export.  
+> **What I built:** An AI assistant inside the dashboard that answers plain-language questions with live charts and lets each user shape their own layout, isolated per tenant and cost-capped.  
+> **Result:** Merchants answer their own data questions and build the dashboard they need, with AI spend limited per user and per tenant.
 
 **At a glance:** ~80 issues · 13/13 E2E tests · 5/5 live merchant requests · tenant-isolated · cost-capped
 

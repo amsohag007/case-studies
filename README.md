@@ -1,4 +1,5 @@
 ---
+redirect_to: https://abumusa-portfolio.web.app/case-studies/
 permalink: /
 image: /merchant-dashboard-agent/architecture.png
 ---
