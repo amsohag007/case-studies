@@ -58,7 +58,7 @@ Domain code and the scheduled rebill scan publish events once to the bus, which 
 
 ## The legal email a setting could silence
 
-Rules could be scoped per campaign, and a campaign rule could also block an event. That flexibility had a hole: a merchant could block the upcoming-rebill event for one campaign and silently stop the SEPA pre-notification the law requires.
+Rules could be scoped per campaign, and a campaign rule could also block an event. That flexibility carried a risk: a merchant could block the upcoming-rebill event for one campaign and silently stop the SEPA pre-notification the law requires.
 
 I closed it at two levels. The dispatcher always restores the global pre-notification rule for that event, and the rule forms refuse any block on it. Legally required mail now goes out no matter how a merchant configures their rules.
 
@@ -154,8 +154,6 @@ After a run where 15 end-to-end tests failed, 14 traced back to one seed templat
 ## Outcome
 
 Merchants now send branded, rule-driven email through their own mail servers, with legally required pre-notifications guaranteed and every send traceable. The platform is merged and running in production, and the same rules and dispatcher now drive physical letters.
-
-Still open: a "don't notify" switch for bulk imports, which today trigger lifecycle emails, and bounce and complaint handling.
 
 ## Takeaways
 

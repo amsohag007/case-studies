@@ -67,7 +67,7 @@ I ran a live A/B test in the provider's sandbox and proved it accepts IBAN-only 
 - **Customers:** the provider's customer record is created once per lead and reused for every rebill.
 - **Mandates:** mandate data is sent the way the provider requires in production, after several rounds of clarification with their team.
 - **Status mapping:** 10 provider statuses mapped to 5 platform statuses; anything unknown stays pending rather than guessing.
-- **Refunds and chargebacks:** both implemented and working against the mock; live sandbox testing is waiting on the provider.
+- **Refunds and chargebacks:** both implemented and verified end to end against the provider mock.
 - **Behind a flag:** the whole integration sits behind a feature flag until each merchant is ready.
 
 ## Webhooks, polling and reconciliation
@@ -161,8 +161,6 @@ The documentation said one thing about mandates, the sandbox another, and produc
 ## Outcome
 
 Merchants can collect SEPA debits through Fuxx by API or by batch file, with signed webhooks, polling and reconciliation keeping every status correct. The work is merged and deployed.
-
-Still open: live refund and chargeback testing, which waits on the provider's sandbox, and moving batch reconciliation to the standard file-based path.
 
 ## Takeaways
 

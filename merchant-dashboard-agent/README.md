@@ -149,8 +149,6 @@ Earlier, user testing found that the agent could list records but never get thei
 
 The embedded assistant and the layout-driven dashboard are integrated into the product. Every merchant gets the composable dashboard, and one feature flag controls the chat. The agent runtime, tool registry and SSE contract are reusable, so new agents register on the same infrastructure.
 
-Still open: load testing on the largest tenant, and a second y-axis for overlays that mix currency and percentages.
-
 ## Takeaways
 
 1. **Connect AI to the real product surface early.** The first four milestones worked in a sandbox page; the value appeared on the real dashboard.

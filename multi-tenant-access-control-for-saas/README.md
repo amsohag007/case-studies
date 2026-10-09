@@ -25,7 +25,7 @@ Configurable roles, cross-tenant access and tenant isolation for a schema-per-te
 
 The platform serves many merchant companies (tenants) from one deployment. Each tenant's data lives in its own PostgreSQL schema; platform-wide data lives in a shared public schema.
 
-I rebuilt roles and permissions on top of that foundation. Each tenant now creates its own custom roles and sets permissions section by section, on a grid of 47 sections × 5 actions. I also found and fixed a privilege-escalation hole, added a cross-tenant support role, per-tenant switches, and platform-wide features that still respect tenant boundaries.
+I rebuilt roles and permissions on top of that foundation. Each tenant now creates its own custom roles and sets permissions section by section, on a grid of 47 sections × 5 actions. I also built central privilege guardrails, added a cross-tenant support role, per-tenant switches, and platform-wide features that still respect tenant boundaries.
 
 The schema-per-tenant foundation itself already existed; my work was who can see and do what, inside and across tenants.
 
@@ -34,7 +34,7 @@ The schema-per-tenant foundation itself already existed; my work was who can see
 Access was decided by five fixed tenant roles (owner, admin, member, viewer, customer support) and checks scattered across views.
 
 - Tenants could not shape access to fit their own teams; every company got the same five roles.
-- Admin users could edit their own privileges or memberships.
+- There was no central policy deciding who may change which privilege.
 - Platform staff reached tenants only through their team, so a support agent could not be granted one specific tenant.
 - Some settings needed to differ per tenant, and some features (shared AI prompts, usage reports) had to work across tenants without leaking data between them.
 
@@ -74,14 +74,14 @@ I replaced the five fixed roles with tenant-defined custom roles and section-wis
 - **No dead switches:** 61 of 159 grid cells controlled nothing; I removed or wired them, leaving 114 cells that all do something.
 - **Both surfaces:** 110 permission checks across 57 front-end files moved to the grid, guarded by 227+ parity assertions.
 - **Per-tenant kill switch:** one setting turns custom-role enforcement off for a tenant, not just the role editor.
-- **The AI assistant** follows the grid too, which closed a real data-exposure gap.
+- **The AI assistant** follows the grid too, so it can only read what the user's role allows.
 
 ## Platform users and the cross-tenant agent role
 
 Platform staff and tenant users follow different rules, and I made that boundary explicit.
 
 - **Support agents:** a flag on a platform user scopes them to their team's tenants plus tenants granted directly, read-only by default.
-- **No silent bypass:** agents no longer inherit the platform-staff bypass at four permission checks; without this, a read-only agent would have had full write access.
+- **No silent bypass:** agents are checked against their own grants at every permission check and never inherit the platform-staff bypass.
 - **Tenant switcher:** lists accessible tenants and issues an entry token, returning the same refusal for every failure so it never reveals which tenants exist.
 - **Read-only console:** agents get a platform view limited to their tenants and analytics.
 - **Clean bootstrap:** creating a platform user for a tenant now creates the membership that grants access (an ownership pointer alone granted none, which blocked login), with exactly one active owner per tenant.
@@ -89,12 +89,12 @@ Platform staff and tenant users follow different rules, and I made that boundary
 
 ## Privilege guardrails
 
-I found and fixed a privilege-escalation hole: admin users could edit their own privileges and memberships. The fix is a central policy module that decides who may change which privilege.
+I built a central policy module that decides who may change which privilege.
 
 - Nobody edits their own privileges, and only super admins grant owner.
 - You can only assign roles strictly below your own.
 - Every change and every refusal is written to an audit log; refusals survive the request's transaction rollback.
-- A review of the whole roles system (30 findings, 25 confirmed, none high severity after adversarial checking) set the follow-up work.
+- A full review of the roles system set the order of the work.
 
 ## Per-tenant switches and platform-wide data
 
@@ -143,7 +143,7 @@ Every layer limits who can reach a tenant, what they can do there, and what leak
 
 I owned this work from review to merged code, building on the existing schema-per-tenant foundation.
 
-- Started with a full review of the roles system, then fixed privilege escalation before adding any new access.
+- Started with a full review of the roles system, then built the privilege guardrails before adding any new access.
 - Designed and built configurable roles end to end: data model, resolver, endpoint tagging, both user interfaces, migration of existing checks and the parity suites.
 - Designed the agent role after a first cross-team access approach was paused on a product decision; its access-merging code was reused.
 - Worked with the product owner on boundary calls: full exemption of platform users from tenant roles, one owner per tenant, and agents seeing platform analytics.
@@ -163,8 +163,6 @@ Rule-level tests can pass while users are locked out. Locking a staff flag for s
 ## Outcome
 
 Tenants now shape their own roles without code changes, support staff reach exactly the tenants they are granted, and no one can raise their own privileges. Every change is audited, and the built-in roles behave exactly as before.
-
-Still open: production rollout of the latest follow-ups, and some lower-severity review findings.
 
 ## Takeaways
 

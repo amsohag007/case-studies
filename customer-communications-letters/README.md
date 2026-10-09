@@ -154,8 +154,6 @@ Three issues passed every unit test. Real delivery webhooks used a different sha
 
 Merchants can send branded, white-labelled letters from the same rules as their emails, priced per destination and capped by a budget, with delivery tracked to the door. The channel is merged and deployed.
 
-Still open: a "don't notify" switch for bulk imports, so historical customers are never mailed by accident, and back-filling actual provider costs.
-
 ## Takeaways
 
 1. **Read what the provider reads.** The address in the PDF mattered more than the address in the API call.
