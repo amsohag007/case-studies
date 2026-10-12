@@ -9,3 +9,6 @@ author:
 plugins:
   - jekyll-redirect-from
   - jekyll-seo-tag
+
+exclude:
+  - sync.mjs
